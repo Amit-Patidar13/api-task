@@ -12,6 +12,11 @@ class UsersController < ApplicationController
       render json: @users
   end
 
+  def demo
+    users = User.all
+    render json: {success: true, data: users}
+  end
+
  def create
     if current_user.admin?
       @users = User.student.new(user_params)
